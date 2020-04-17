@@ -2,16 +2,14 @@ package com.spring.codeBrasil.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 import com.spring.codeBrasil.Service.BrazilService;
 import com.spring.codeBrasil.model.Brazil;
+
+import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("brazil")
@@ -22,10 +20,11 @@ public class BrazilController {
     @GetMapping
     public ResponseEntity<?> listAll() {
         return service.findAll();
+
     }
     
     @PostMapping
-    public ResponseEntity<?> add(@RequestBody Brazil brazil) {
+    public ResponseEntity<?> add(@RequestBody Brazil brazil){
         return service.add(brazil);
     }
     
@@ -38,7 +37,11 @@ public class BrazilController {
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<?> deleteStateById(@PathVariable("id") Long id){
         return service.deleteStateById(id);
-    }
 
+    }
+    @PutMapping
+    public ResponseEntity<?> putStateById(@RequestBody Brazil brazil){
+        return service.putStateById(brazil);
+    }
 
 }
