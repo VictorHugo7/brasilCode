@@ -1,14 +1,9 @@
 package com.spring.codeBrasil.Service;
-
-import java.awt.print.Pageable;
-import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import com.spring.codeBrasil.Repository.BrazilRepository;
 import com.spring.codeBrasil.model.Brazil;
 
